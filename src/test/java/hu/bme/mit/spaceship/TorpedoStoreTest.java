@@ -38,12 +38,16 @@ class TorpedoStoreTest {
     @Test
     public void TorpedoStore_test(int numberOfTorpedos) {
         TorpedoStore store = new TorpedoStore(2);
+        double FAILURE_RATE = 1.0;
 
         String failureEnv = System.getenv(null);
-        double s = 0.0;
         if (failureEnv != null) {
-                s = Double.parseDouble(failureEnv);
+            try {
+                FAILURE_RATE = Double.parseDouble(failureEnv);
+            } catch (NumberFormatException nfe) {
+                FAILURE_RATE = 0.0;
+            }
         }
-        assertEquals(0.0, s);
+        assertEquals(0.0, FAILURE_RATE);
     }
 }
