@@ -26,4 +26,10 @@ class TorpedoStoreTest {
 
         assertEquals(false, result);
     }
+    @Test
+    void getTorpedoCount_test() {
+        TorpedoStore store = new TorpedoStore(-1);
+        int num = store.getTorpedoCount();
+        assertEquals(0, num);
+    }
 }
