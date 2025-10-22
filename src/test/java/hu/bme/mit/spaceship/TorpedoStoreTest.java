@@ -1,6 +1,8 @@
 package hu.bme.mit.spaceship;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,13 +10,10 @@ class TorpedoStoreTest {
 
     @Test
     void fire_Success() {
-        // Arrange
-        TorpedoStore store = new TorpedoStore(1);
+        TorpedoStore store = new TorpedoStore(1, 0);
 
-        // Act
         boolean result = store.fire(1);
 
-        // Assert
         assertEquals(true, result);
     }
 
@@ -22,32 +21,19 @@ class TorpedoStoreTest {
     void fire_Fail() {
         TorpedoStore store = new TorpedoStore(0);
 
-        boolean result = store.fire(1);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            store.fire(1);
+        });
 
-        assertEquals(false, result);
+        String expectedMessage = "numberOfTorpedos";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
     }
     @Test
     void getTorpedoCount_test() {
-        TorpedoStore store = new TorpedoStore(-1);
-        boolean neg = false;
-        if(store.getTorpedoCount() < 0) {
-            neg = true;
-        }
-        assertEquals(false, neg);
-    }
-    @Test
-    public void TorpedoStore_test(int numberOfTorpedos) {
         TorpedoStore store = new TorpedoStore(2);
-        double FAILURE_RATE = 1.0;
-
-        String failureEnv = System.getenv("2");
-        if (failureEnv != null) {
-            try {
-                FAILURE_RATE = Double.parseDouble(failureEnv);
-            } catch (NumberFormatException nfe) {
-                FAILURE_RATE = 0.0;
-            }
-        }
-        assertEquals(2, FAILURE_RATE);
+        assertEquals(2, store.getTorpedoCount());
     }
+
 }
