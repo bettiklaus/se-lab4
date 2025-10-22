@@ -1,5 +1,6 @@
 package hu.bme.mit.spaceship;
 
+import java.beans.Transient;
 import java.util.Random;
 
 /**
