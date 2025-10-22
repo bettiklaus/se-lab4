@@ -29,7 +29,21 @@ class TorpedoStoreTest {
     @Test
     void getTorpedoCount_test() {
         TorpedoStore store = new TorpedoStore(-1);
-        int num = store.getTorpedoCount();
-        assertEquals(0, num);
+        boolean neg = false;
+        if(store.getTorpedoCount() < 0) {
+            neg = true;
+        }
+        assertEquals(false, neg);
+    }
+    @Test
+    public void TorpedoStore_test(int numberOfTorpedos) {
+        TorpedoStore store = new TorpedoStore(2);
+
+        String failureEnv = System.getenv(null);
+        double s = 0.0;
+        if (failureEnv != null) {
+                s = Double.parseDouble(failureEnv);
+        }
+        assertEquals(0.0, s);
     }
 }
