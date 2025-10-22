@@ -40,7 +40,7 @@ class TorpedoStoreTest {
         TorpedoStore store = new TorpedoStore(2);
         double FAILURE_RATE = 1.0;
 
-        String failureEnv = System.getenv(null);
+        String failureEnv = System.getenv("2");
         if (failureEnv != null) {
             try {
                 FAILURE_RATE = Double.parseDouble(failureEnv);
@@ -48,6 +48,6 @@ class TorpedoStoreTest {
                 FAILURE_RATE = 0.0;
             }
         }
-        assertEquals(0.0, FAILURE_RATE);
+        assertEquals(2, FAILURE_RATE);
     }
 }
