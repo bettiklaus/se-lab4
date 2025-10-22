@@ -1,0 +1,5 @@
+SUCCESS  # <- GT4500
+SUCCESS # <-Primary store fire
+SUCCESS  # <-Primary store fire
+SUCCESS # <-Primary store fire, because Secondary is empty
+FAIL

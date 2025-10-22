@@ -1,0 +1,5 @@
+# The ship tries to fire the other store
+GT4500,1,0,3,0
+TORPEDO,SINGLE
+TORPEDO,SINGLE
+TORPEDO,SINGLE

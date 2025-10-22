@@ -1,0 +1,3 @@
+# The ship does not try to fire the other one
+GT4500,1,1,1,0
+TORPEDO,SINGLE

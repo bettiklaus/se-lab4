@@ -1,0 +1,2 @@
+SUCCESS  # <- GT4500
+FAIL # <-The fired store reports a failure
